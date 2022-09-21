@@ -18,14 +18,15 @@ RUN apt-get -y update \
     && apt-get clean \
     && apt-get install -y --no-install-recommends software-properties-common curl wget vim nano
 
-RUN apt-get install -y --no-install-recommends --allow-unauthenticated install  kali-linux-${KALI_METAPACKAGE} \
-                                                                                kali-tools-top10 \
-                                                                                kali-desktop-${KALI_DESKTOP} \
-                                                                                tightvncserver \
-                                                                                dbus  \
-                                                                                dbus-x11  \
-                                                                                novnc  \
-                                                                                net-tools \
+RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linux-${KALI_METAPACKAGE} \
+                                                                       kali-tools-top10 \
+                                                                       kali-desktop-${KALI_DESKTOP} \
+                                                                       tightvncserver \
+                                                                       dbus  \
+                                                                       dbus-x11  \
+                                                                       novnc  \
+                                                                       net-tools \
+                                                                       xfonts-base \
     && apt-get -y autoclean \
     && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
