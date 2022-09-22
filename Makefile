@@ -1,6 +1,6 @@
 # vim:ft=make:
 
-.PHONY : all
+.PHONY : all start
 
 all: build
 
