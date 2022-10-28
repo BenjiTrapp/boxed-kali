@@ -18,8 +18,16 @@ RUN apt-get -y update \
     && apt-get clean \
     && apt-get install -y --no-install-recommends software-properties-common curl wget vim nano
 
+# https://www.kali.org/tools/kali-meta/#kali-tools-forensics
 RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linux-${KALI_METAPACKAGE} \
                                                                        kali-tools-top10 \
+                                                                       kali-tools-forensics \
+                                                                       kali-tools-windows-resources \
+                                                                       binutils \
+                                                                       ghidra \
+                                                                       git \
+                                                                       gobuster \
+                                                                       python3-pip python3-dev build-essential \ 
                                                                        kali-desktop-${KALI_DESKTOP} \
                                                                        tightvncserver \
                                                                        dbus  \
