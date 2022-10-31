@@ -15,6 +15,10 @@ ENV USER root
 ENV NOVNCPORT 8080
 ENV DEBIAN_FRONTEND noninteractive
 
+ENV GOROOT=/usr/lib/go
+ENV GOPATH=$HOME/go
+ENV PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
 RUN apt-get -y update \
     && apt-get -y dist-upgrade \
     && apt-get clean \
@@ -49,7 +53,7 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir awscli boto3 pacu trufflehog
+    pip install --no-cache-dir awscli boto3 pacu trufflehog
 
 COPY containerfiles/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
