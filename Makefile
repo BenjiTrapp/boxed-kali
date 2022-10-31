@@ -1,11 +1,15 @@
 # vim:ft=make:
 
-.PHONY : all start
+.PHONY : all start github
 
-all: build
+all: github
 
 build:
 		docker build -t kali-sandbox .
+
+github:
+		docker pull ghcr.io/benjitrapp/boxed-kali:nightly
+		docker run --rm -it -p 9020:8080 -p 9021:5900 ghcr.io/benjitrapp/boxed-kali:nightly kali
 
 clean:
 		docker rmi kali-sandbox

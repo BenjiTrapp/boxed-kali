@@ -1,5 +1,10 @@
 #!/bin/bash
 
+function set_dns_nameserver() {
+  DNS_NAMESERVER="${DNS_NAMESERVER:-8.8.8.8}"
+  echo "$DNS_NAMESERVER" >> /etc/resolv.conf
+}
+
 function start_postgresql() {
   service postgresql start
   msfdb init > /dev/null 2>&1 &
@@ -28,7 +33,8 @@ function start_vnc_server() {
   echo "Launch your web browser and open http://localhost:9020/vnc.html"
 }
 
-function main() {
+function main() {^
+  set_dns_nameserver
   start_postgresql
   set_vnc_creds
   start_vnc_server
