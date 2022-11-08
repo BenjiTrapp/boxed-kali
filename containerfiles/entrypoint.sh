@@ -33,7 +33,7 @@ function start_vnc_server() {
   echo "Launch your web browser and open http://localhost:9020/vnc.html"
 }
 
-function main() {^
+function main() {
   set_dns_nameserver
   start_postgresql
   set_vnc_creds
