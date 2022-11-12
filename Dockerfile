@@ -32,13 +32,17 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
                                                                        kali-tools-web \
                                                                        kali-tools-windows-resources \
                                                                        binutils \
+                                                                       burpsuite \
+                                                                       libproxychains4 \
+                                                                       proxychains4 \
+                                                                       exploitdb \
                                                                        whois \
                                                                        ghidra \
                                                                        git \
                                                                        jq \
                                                                        gobuster \
                                                                        python3-pip python3-dev build-essential \ 
-                                                                       golang-go \
+                                                                       golang-go \ 
                                                                        tightvncserver \
                                                                        dbus  \
                                                                        dbus-x11  \
