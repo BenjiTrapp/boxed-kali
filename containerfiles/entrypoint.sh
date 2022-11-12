@@ -2,7 +2,7 @@
 
 function set_dns_nameserver() {
   DNS_NAMESERVER="${DNS_NAMESERVER:-8.8.8.8}"
-  echo "$DNS_NAMESERVER" >> /etc/resolv.conf
+  echo "nameserver $DNS_NAMESERVER" >> /etc/resolv.conf
 }
 
 function start_postgresql() {
