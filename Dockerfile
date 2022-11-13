@@ -36,8 +36,15 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
                                                                        libproxychains4 \
                                                                        proxychains4 \
                                                                        exploitdb \
+                                                                       bloodhound \
+                                                                       kerberoast \
+                                                                       fail2ban \
                                                                        whois \
                                                                        ghidra \
+                                                                       sslscan \
+                                                                       traceroute \
+                                                                       whois \
+                                                                       powershell \
                                                                        git \
                                                                        jq \
                                                                        gobuster \
