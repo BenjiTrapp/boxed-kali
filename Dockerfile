@@ -67,6 +67,7 @@ RUN pip3 install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir awscli boto3 pacu trufflehog
 
 COPY containerfiles/entrypoint.sh /entrypoint.sh
+COPY containerfiles/bash.sh /bash.sh
 RUN chmod +x /entrypoint.sh
 
 
