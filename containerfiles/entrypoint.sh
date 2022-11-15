@@ -1,5 +1,13 @@
 #!/bin/bash
 
+readonly SPLASH="
+▄▄▄▄·       ▐▄• ▄ ▄▄▄ .·▄▄▄▄      ▄ •▄  ▄▄▄· ▄▄▌  ▪
+▐█ ▀█▪▪      █▌█▌▪▀▄.▀·██▪ ██     █▌▄▌▪▐█ ▀█ ██•  ██
+▐█▀▀█▄ ▄█▀▄  ·██· ▐▀▀▪▄▐█· ▐█▌    ▐▀▀▄·▄█▀▀█ ██▪  ▐█·
+██▄▪▐█▐█▌.▐▌▪▐█·█▌▐█▄▄▌██. ██     ▐█.█▌▐█ ▪▐▌▐█▌▐▌▐█▌
+·▀▀▀▀  ▀█▄▀▪•▀▀ ▀▀ ▀▀▀ ▀▀▀▀▀•     ·▀  ▀ ▀  ▀ .▀▀▀ ▀▀▀
+"
+
 function set_dns_nameserver() {
   DNS_NAMESERVER="${DNS_NAMESERVER:-8.8.8.8}"
   echo "nameserver $DNS_NAMESERVER" >> /etc/resolv.conf
@@ -34,6 +42,8 @@ function start_vnc_server() {
 }
 
 function main() {
+  echo "$SPLASH"
+  source /bashrc.sh
   set_dns_nameserver
   start_postgresql
   set_vnc_creds
