@@ -50,13 +50,12 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
                                                                        gobuster \
                                                                        python3-full \
                                                                        python3-pip \ 
-                                                                    #    python3-dev build-essential \ 
+                                                                       python3-dev build-essential \ 
                                                                        golang-go \ 
                                                                        novnc  \
                                                                        x11vnc
 RUN cd /usr/local/bin \
     && ln -s /usr/bin/python3 python \
-    && pip3 install --upgrade pip \   
     && apt-get -y autoclean \
     && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
