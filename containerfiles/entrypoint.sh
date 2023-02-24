@@ -1,8 +1,16 @@
 #!/bin/bash
 
+readonly SPLASH="
+▄▄▄▄·       ▐▄• ▄ ▄▄▄ .·▄▄▄▄      ▄ •▄  ▄▄▄· ▄▄▌  ▪
+▐█ ▀█▪▪      █▌█▌▪▀▄.▀·██▪ ██     █▌▄▌▪▐█ ▀█ ██•  ██
+▐█▀▀█▄ ▄█▀▄  ·██· ▐▀▀▪▄▐█· ▐█▌    ▐▀▀▄·▄█▀▀█ ██▪  ▐█·
+██▄▪▐█▐█▌.▐▌▪▐█·█▌▐█▄▄▌██. ██     ▐█.█▌▐█ ▪▐▌▐█▌▐▌▐█▌
+·▀▀▀▀  ▀█▄▀▪•▀▀ ▀▀ ▀▀▀ ▀▀▀▀▀•     ·▀  ▀ ▀  ▀ .▀▀▀ ▀▀▀
+"
+
 function set_dns_nameserver() {
   DNS_NAMESERVER="${DNS_NAMESERVER:-8.8.8.8}"
-  echo "$DNS_NAMESERVER" >> /etc/resolv.conf
+  echo "nameserver $DNS_NAMESERVER" >> /etc/resolv.conf
 }
 
 function start_postgresql() {
@@ -17,23 +25,16 @@ function set_vnc_creds() {
 }
 
 function start_vnc_server() {
-  if [ "$VNCEXPOSE" = 1 ]; then
-    # Expose VNC
-    vncserver :0 -rfbport ${VNCPORT} -geometry ${VNCDISPLAY} -depth ${VNCDEPTH} \
-      > /var/log/vncserver.log 2>&1
-  else
-    # Localhost only
-    vncserver :0 -rfbport ${VNCPORT} -geometry ${VNCDISPLAY} -depth ${VNCDEPTH} -localhost \
-      > /var/log/vncserver.log 2>&1
-  fi
+  x11vnc -display :0 -autoport -localhost -nopw -bg -xkb -ncache -ncache_cr -quiet -forever
 
-  /usr/share/novnc/utils/launch.sh --listen ${NOVNCPORT} --vnc localhost:${VNCPORT} \
-    > /var/log/novnc.log 2>&1 &
+  /usr/share/novnc/utils/novnc_proxy --listen 8080 --vnc localhost:5900
 
   echo "Launch your web browser and open http://localhost:9020/vnc.html"
 }
 
-function main() {^
+function main() {
+  echo "$SPLASH"
+  source /bashrc.sh
   set_dns_nameserver
   start_postgresql
   set_vnc_creds
