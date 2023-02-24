@@ -32,30 +32,39 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
                                                                        kali-tools-web \
                                                                        kali-tools-windows-resources \
                                                                        binutils \
+                                                                       burpsuite \
+                                                                       libproxychains4 \
+                                                                       proxychains4 \
+                                                                       exploitdb \
+                                                                       bloodhound \
+                                                                       kerberoast \
+                                                                       fail2ban \
                                                                        whois \
                                                                        ghidra \
+                                                                       sslscan \
+                                                                       traceroute \
+                                                                       whois \
+                                                                       powershell \
                                                                        git \
                                                                        jq \
                                                                        gobuster \
-                                                                       python3-pip python3-dev build-essential \ 
-                                                                       golang-go \
-                                                                       tightvncserver \
-                                                                       dbus  \
-                                                                       dbus-x11  \
+                                                                       python3-full \
+                                                                       python3-pip \ 
+                                                                       python3-dev build-essential \ 
+                                                                       golang-go \ 
                                                                        novnc  \
-                                                                       net-tools \
-                                                                       xfonts-base \
+                                                                       x11vnc \
     && cd /usr/local/bin \
     && ln -s /usr/bin/python3 python \
-    && pip3 install --upgrade pip \   
     && apt-get -y autoclean \
     && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir awscli boto3 pacu trufflehog
+RUN pip3 install --break-system-package --no-cache-dir --upgrade pip  && \
+    pip3 install --break-system-package --no-cache-dir awscli boto3 pacu trufflehog
 
 COPY containerfiles/entrypoint.sh /entrypoint.sh
+COPY containerfiles/bashrc.sh /bashrc.sh
 RUN chmod +x /entrypoint.sh
 
 
