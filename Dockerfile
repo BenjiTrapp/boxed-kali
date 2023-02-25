@@ -52,8 +52,12 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
                                                                        python3-pip \ 
                                                                        python3-dev build-essential \ 
                                                                        golang-go \ 
-                                                                       novnc  \
-                                                                       x11vnc \
+                                                                       tightvncserver \
+                                                                       dbus \
+                                                                       dbus-x11 \
+                                                                       novnc \
+                                                                       net-tools \
+                                                                       xfonts-base \
     && cd /usr/local/bin \
     && ln -s /usr/bin/python3 python \
     && apt-get -y autoclean \
