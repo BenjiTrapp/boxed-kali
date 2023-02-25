@@ -11,7 +11,7 @@ You require:
 * Docker
 * Browser
 * ~10GB of Storage
-* At least 4GB of RAM 
+* At least 4GB of RAM
 
 ## What do you get ?
 The following packages are coming pre-installed but can be enhanced by inheriting this image and add the dependencies you need:
@@ -36,9 +36,7 @@ The following packages are coming pre-installed but can be enhanced by inheritin
 * powershell
 * git
 * jq
-gobuster
-
-
+* gobuster
 
 ## Usage
 
@@ -48,9 +46,17 @@ Directly pull from GitHub and run the container:
 docker pull ghcr.io/benjitrapp/boxed-kali:nightly
 docker run --rm -it -p 9020:8080 -p 9021:5900 ghcr.io/benjitrapp/boxed-kali:nightly kali
 ```
+
 Alternative usage over the [Makefile](https://github.com/BenjiTrapp/boxed-kali/blob/main/Makefile). The Makefile also contains all essential steps to build, run and access the boxed Kali with your browser. You can get a glimpse how it is working here:
 
 <p align="center">
 <img src="static/Herunterladen.gif">
+<br>Download the GitHub Image using the Makefile
+</p>
+
+After the successful download open your Browser and navigate to `http://localhost:9020/vnc.html` to access Kali and haven't override the environment variable `VNCPWD` the default password is simply `password`. After the login you should see something similar to this (running Kali 2022.4 at the time of writing this):
+
+<p align="center">
+<img src="static/browser.png">
 <br>Boxed Kali in your Browser
 </p>
