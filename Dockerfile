@@ -1,4 +1,4 @@
-FROM kalilinux/kali-rolling:latest
+FORM kalilinux/kali-rolling:latest
 
 LABEL org.opencontainers.image.author="benjitrapp.github.io"
 
@@ -72,7 +72,7 @@ RUN pip3 install --break-system-package --no-cache-dir --upgrade pip  && \
 
 RUN git clone https://github.com/duo-labs/cloudmapper.git /opt/cloudmapper && \
     cd /opt/cloudmapper && \
-    pip3 install --break-system-package --no-cache-dir -r requirements.txt
+    pip3 install -r requirements.txt
     
 
 
