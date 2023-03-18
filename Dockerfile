@@ -19,11 +19,13 @@ ENV GOROOT=/usr/lib/go
 ENV GO111MODULE=on
 ENV GOPATH=$HOME/go
 ENV PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+ENV AWS_DEFAULT_REGION=eu-central-1
+
 
 RUN apt-get -y update \
     && apt-get -y dist-upgrade \
     && apt-get clean \
-    && apt-get install -y --no-install-recommends software-properties-common curl wget vim nano
+    && apt-get install -y --no-install-recommends software-properties-common curl wget vim nano build-essential autoconf automake libtool 
 
 # https://www.kali.org/tools/kali-meta/#kali-tools-forensics
 RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linux-${KALI_METAPACKAGE} \
@@ -67,6 +69,12 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
 
 RUN pip3 install --break-system-package --no-cache-dir --upgrade pip  && \
     pip3 install --break-system-package --no-cache-dir awscli boto3 pacu trufflehog endgame notebook
+
+RUN git clone https://github.com/duo-labs/cloudmapper.git /opt/cloudmapper && \
+    cd /opt/cloudmapper && \
+    pip3 install --break-system-package --no-cache-dir -r requirements.txt
+    
+
 
 COPY containerfiles/entrypoint.sh /entrypoint.sh
 COPY containerfiles/bashrc.sh /bashrc.sh
