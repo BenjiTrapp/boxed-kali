@@ -70,9 +70,9 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
 RUN pip3 install --break-system-package --no-cache-dir --upgrade pip  && \
     pip3 install --break-system-package --no-cache-dir awscli boto3 pacu trufflehog endgame notebook
 
-RUN git clone https://github.com/duo-labs/cloudmapper.git /opt/cloudmapper && \
-    cd /opt/cloudmapper && \
-    pip3 install -r requirements.txt
+RUN git clone https://github.com/duo-labs/cloudmapper.git /opt/cloudmapper # && \
+    #cd /opt/cloudmapper && \
+    #pip3 install -r requirements.txt
     
 
 
