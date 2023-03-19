@@ -1,4 +1,4 @@
-FORM kalilinux/kali-rolling:latest
+FROM kalilinux/kali-rolling:latest
 
 LABEL org.opencontainers.image.author="benjitrapp.github.io"
 
