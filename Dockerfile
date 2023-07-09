@@ -68,7 +68,7 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --break-system-package --no-cache-dir --upgrade pip  && \
-    pip3 install --break-system-package --no-cache-dir awscli boto3 pacu trufflehog endgame notebook
+    pip3 install --break-system-package --no-cache-dir awscli boto3 pacu trufflehog endgame notebook thug roadlib roadrecon roadtx
 
 COPY containerfiles/entrypoint.sh /entrypoint.sh
 COPY containerfiles/bashrc.sh /bashrc.sh
