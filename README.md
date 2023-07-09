@@ -43,6 +43,9 @@ The following packages are coming pre-installed but can be enhanced by inheritin
 * gobuster
 * awscli
 * pacu
+* roadlib
+* roadrecon
+* roadtx
 * endgame
 * trufflehog
 * Jupyter Notebook
