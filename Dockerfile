@@ -47,7 +47,7 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
                                                                        sslscan \
                                                                        traceroute \
                                                                        whois \
-                                                                       #powershell \
+                                                                      
                                                                        git \
                                                                        jq \
                                                                        gobuster \
