@@ -1,7 +1,7 @@
 [![Docker](https://github.com/BenjiTrapp/boxed-kali/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/BenjiTrapp/boxed-kali/actions/workflows/docker-publish.yml)
 
 <p align="center">
-<img height="200" src="static/boxed-kali.png">
+<img height="200" src="static/boxedkali.png">
 <br>Boxed Kali in your Browser
 </p>
 
