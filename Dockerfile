@@ -66,9 +66,6 @@ RUN apt-get install -y --no-install-recommends --allow-unauthenticated kali-linu
     && apt-get -y autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install --break-system-package --no-cache-dir --upgrade pip && \
-    pip3 install --break-system-package --no-cache-dir jupyterlab
-
 COPY containerfiles/entrypoint.sh /entrypoint.sh
 COPY containerfiles/bashrc.sh /bashrc.sh
 RUN chmod +x /entrypoint.sh
