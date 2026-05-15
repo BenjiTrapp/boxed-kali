@@ -53,6 +53,6 @@ function main() {
 # Run Forrest run!
 main
 
-# Required to keep the container alive in a more graceful way
-/bin/bash
+# Required to keep the container alive
+exec tail -f /dev/null
 

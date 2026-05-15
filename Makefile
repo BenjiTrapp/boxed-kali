@@ -1,8 +1,8 @@
 # vim:ft=make:
 
-.PHONY : all start github
+.PHONY : all build github macm2 clean start stop browser
 
-all: github
+all: build
 
 build:
 		docker build -t kali-sandbox .
@@ -19,7 +19,7 @@ clean:
 		docker rmi kali-sandbox
 
 start:
-		docker run --rm -it -p 9020:8080 -p 9021:5900 --name kali-sandbox kali-sandbox
+		docker run --rm -d -p 9020:8080 -p 9021:5900 --name kali-sandbox kali-sandbox
 
 stop:
 		docker rm -f kali-sandbox
